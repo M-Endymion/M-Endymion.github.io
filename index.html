@@ -3,20 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jason Ray | MECM/SCCM Automation Specialist</title>
+  <title>Jason Ray | MECM/SCCM Automation Engineer</title>
   <style>
-    :root { --primary: #0078D4; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; line-height:1.6; }
-    header { background: linear-gradient(135deg, #0078D4, #005a9e); color:white; padding:4rem 2rem; text-align:center; }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-    h1 { margin:0; font-size:2.8rem; }
-    h2 { color: var(--primary); border-bottom: 3px solid #0078D4; padding-bottom: 10px; }
-    .badges { margin: 1.5rem 0; }
-    .badges img { margin: 0 8px 8px 0; }
-    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-    .project-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .project-card:hover { transform: translateY(-8px); }
-    footer { text-align:center; padding: 3rem; background:#222; color:#ddd; margin-top: 3rem; }
+    :root {
+      --primary: #0078D4;
+      --dark: #1e1e1e;
+      --light: #f8f9fa;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--light);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0078D4, #005a9e);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    h1 { margin: 0; font-size: 3rem; }
+    .subtitle { font-size: 1.5rem; margin: 1rem 0; opacity: 0.95; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .badges img { margin: 0.4rem 0.5rem 0.4rem 0; vertical-align: middle; }
+    h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 12px;
+      margin-top: 3rem;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,120,212,0.15);
+    }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #222;
+      color: #ddd;
+      margin-top: 4rem;
+    }
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -24,51 +65,56 @@
 <body>
   <header>
     <h1>Jason Ray</h1>
-    <p style="font-size:1.4rem; margin:1rem 0;">MECM/SCCM Automation Specialist • PowerShell • Hybrid Endpoint Management</p>
+    <p class="subtitle">MECM/SCCM Automation Specialist • PowerShell • Hybrid Endpoint Management</p>
+    
     <div class="badges">
       <img src="https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white" alt="PowerShell">
       <img src="https://img.shields.io/badge/MECM-0078D4?style=for-the-badge&logo=microsoft&logoColor=white" alt="MECM">
       <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS">
       <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
     </div>
-    <p><a href="https://www.linkedin.com/in/jason-ray-mecm/" style="color:white; font-size:1.1rem;">LinkedIn</a> • Open to new opportunities</p>
+    
+    <p style="margin-top: 2rem;">
+      <a href="https://www.linkedin.com/in/jason-ray-mecm/" style="color:white; font-size:1.2rem; margin:0 1rem;">LinkedIn</a> |
+      <a href="https://github.com/M-Endymion" style="color:white; font-size:1.2rem; margin:0 1rem;">GitHub</a>
+    </p>
+    <p style="margin-top: 1.5rem; font-size:1.1rem;">Open to new opportunities in Endpoint Management & Automation Engineering</p>
   </header>
 
   <div class="container">
     <h2>About Me</h2>
-    <p>I build clean, production-ready automation for Microsoft Endpoint Configuration Manager (MECM/SCCM), hybrid Windows + macOS environments, and self-hosted infrastructure. My focus is on reliability, strong logging, and real-world enterprise usability.</p>
+    <p>I build clean, production-ready automation for Microsoft Endpoint Configuration Manager (MECM/SCCM), hybrid Windows + macOS environments, Intune/Jamf, and self-hosted infrastructure. Strong emphasis on reliability, comprehensive logging, and real-world enterprise usability.</p>
 
     <h2>Featured Projects</h2>
     <div class="project-grid">
       <div class="project-card">
         <h3><a href="https://github.com/M-Endymion/powershell-sccm">powershell-sccm</a></h3>
-        <p>Comprehensive MECM/SCCM automation suite — Client Health, App Install, OSD, Compliance, macOS tools, and more.</p>
+        <p>Comprehensive MECM/SCCM automation suite with Client Health, App Install, OSD, Compliance, macOS tools, and more.</p>
       </div>
       <div class="project-card">
         <h3><a href="https://github.com/M-Endymion/macos-tools">macos-tools</a></h3>
-        <p>Enterprise macOS provisioning and compliance script (Intune + Jamf ready) with professional reporting.</p>
+        <p>Enterprise-grade macOS provisioning and compliance script (Intune + Jamf) with professional HTML reporting.</p>
       </div>
       <div class="project-card">
         <h3><a href="https://github.com/M-Endymion/homelab-tools">homelab-tools</a></h3>
-        <p>One-click Ubuntu server deployer and Jellyfin media management tools.</p>
+        <p>One-click Ubuntu server deployment and Jellyfin media management tools.</p>
       </div>
       <div class="project-card">
         <h3><a href="https://github.com/M-Endymion/arr-patched-scripts">arr-patched-scripts</a></h3>
-        <p>Fixed and improved *arr suite (Radarr/Sonarr) Docker setup scripts.</p>
+        <p>Fixed and improved Docker setup scripts for the *arr suite (Radarr, Sonarr, etc.).</p>
       </div>
     </div>
 
     <h2>Skills & Technologies</h2>
-    <p><strong>Core:</strong> PowerShell, MECM/SCCM, Intune, Jamf Pro, Windows, macOS, Client Health & Remediation</p>
-    <p><strong>Additional:</strong> Docker, Linux/Ubuntu, Bash, GitHub Actions, Automation Design, Cross-platform Scripting</p>
+    <p><strong>Core Expertise:</strong> PowerShell, MECM/SCCM, Intune, Jamf Pro, Client Health & Remediation, OSD/Task Sequences</p>
+    <p><strong>Additional:</strong> Docker, Linux/Ubuntu Server, Bash Scripting, Cross-platform Automation, GitHub Actions</p>
 
     <h2>Get in Touch</h2>
-    <p>Feel free to explore my repositories or reach out if you're looking for an experienced Endpoint Management / Automation Engineer.</p>
+    <p>Feel free to explore my repositories or reach out if you're looking for an experienced Endpoint Management / Automation professional.</p>
   </div>
 
   <footer>
-    <p>© 2026 Jason Ray (M-Endymion) • Built with GitHub Pages</p>
-    <p><a href="https://github.com/M-Endymion" style="color:#ddd;">github.com/M-Endymion</a></p>
+    <p>© 2026 Jason Ray (M-Endymion) • <a href="https://github.com/M-Endymion/M-Endymion.github.io" style="color:#bbb;">Source on GitHub</a></p>
   </footer>
 </body>
 </html>
