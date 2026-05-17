@@ -10,24 +10,30 @@
       --dark: #1e1e1e;
       --light: #f8f9fa;
     }
+    [data-theme="dark"] {
+      --dark: #f8f9fa;
+      --light: #1e1e1e;
+      background: #121212;
+      color: #ddd;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: var(--light);
       color: #333;
       line-height: 1.6;
+      transition: background 0.3s;
     }
     header {
       background: linear-gradient(135deg, #0078D4, #005a9e);
       color: white;
-      padding: 5rem 2rem;
+      padding: 5rem 2rem 3rem;
       text-align: center;
     }
-    h1 { margin: 0; font-size: 3rem; }
-    .subtitle { font-size: 1.5rem; margin: 1rem 0; opacity: 0.95; }
-    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
-    .badges img { margin: 0.4rem 0.5rem 0.4rem 0; vertical-align: middle; }
+    h1 { margin:0; font-size: 3.2rem; }
+    .subtitle { font-size: 1.55rem; margin:1rem 0; opacity:0.95; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    .badges img { margin: 0.4rem 0.5rem 0.4rem 0; }
     h2 {
       color: var(--primary);
       border-bottom: 3px solid var(--primary);
@@ -43,14 +49,33 @@
     .project-card {
       background: white;
       border-radius: 12px;
-      padding: 1.8rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
     }
+    [data-theme="dark"] .project-card { background: #2d2d2d; }
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0,120,212,0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,120,212,0.2);
     }
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-info { padding: 1.5rem; }
+    .resume-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .resume-btn:hover { background: #0066b3; }
     footer {
       text-align: center;
       padding: 3rem 1rem;
@@ -58,11 +83,25 @@
       color: #ddd;
       margin-top: 4rem;
     }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
   <header>
     <h1>Jason Ray</h1>
     <p class="subtitle">MECM/SCCM Automation Specialist • PowerShell • Hybrid Endpoint Management</p>
@@ -78,43 +117,65 @@
       <a href="https://www.linkedin.com/in/jason-ray-mecm/" style="color:white; font-size:1.2rem; margin:0 1rem;">LinkedIn</a> |
       <a href="https://github.com/M-Endymion" style="color:white; font-size:1.2rem; margin:0 1rem;">GitHub</a>
     </p>
-    <p style="margin-top: 1.5rem; font-size:1.1rem;">Open to new opportunities in Endpoint Management & Automation Engineering</p>
+    <a href="https://github.com/M-Endymion/M-Endymion.github.io/raw/main/Jason_Ray_Resume.pdf" class="resume-btn" target="_blank">📄 Download Resume (PDF)</a>
   </header>
 
   <div class="container">
     <h2>About Me</h2>
-    <p>I build clean, production-ready automation for Microsoft Endpoint Configuration Manager (MECM/SCCM), hybrid Windows + macOS environments, Intune/Jamf, and self-hosted infrastructure. Strong emphasis on reliability, comprehensive logging, and real-world enterprise usability.</p>
+    <p>I specialize in building clean, production-ready automation for Microsoft Endpoint Configuration Manager (MECM/SCCM), hybrid Windows + macOS environments, Intune/Jamf, and self-hosted infrastructure. Strong focus on reliability, comprehensive logging, and real-world enterprise usability.</p>
 
     <h2>Featured Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3><a href="https://github.com/M-Endymion/powershell-sccm">powershell-sccm</a></h3>
-        <p>Comprehensive MECM/SCCM automation suite with Client Health, App Install, OSD, Compliance, macOS tools, and more.</p>
+        <img src="https://raw.githubusercontent.com/M-Endymion/powershell-sccm/main/thumbnail.png" alt="PowerShell SCCM">
+        <div class="project-info">
+          <h3><a href="https://github.com/M-Endymion/powershell-sccm">powershell-sccm</a></h3>
+          <p>Comprehensive MECM/SCCM automation suite — Client Health, App Install, OSD, Compliance, macOS tools & more.</p>
+        </div>
       </div>
+      
       <div class="project-card">
-        <h3><a href="https://github.com/M-Endymion/macos-tools">macos-tools</a></h3>
-        <p>Enterprise-grade macOS provisioning and compliance script (Intune + Jamf) with professional HTML reporting.</p>
+        <img src="https://raw.githubusercontent.com/M-Endymion/macos-tools/main/thunbnail-macos.png" alt="macOS Tools">
+        <div class="project-info">
+          <h3><a href="https://github.com/M-Endymion/macos-tools">macos-tools</a></h3>
+          <p>Enterprise macOS provisioning & compliance (Intune + Jamf) with professional HTML reporting.</p>
+        </div>
       </div>
+      
       <div class="project-card">
-        <h3><a href="https://github.com/M-Endymion/homelab-tools">homelab-tools</a></h3>
-        <p>One-click Ubuntu server deployment and Jellyfin media management tools.</p>
-      </div>
-      <div class="project-card">
-        <h3><a href="https://github.com/M-Endymion/arr-patched-scripts">arr-patched-scripts</a></h3>
-        <p>Fixed and improved Docker setup scripts for the *arr suite (Radarr, Sonarr, etc.).</p>
+        <img src="https://raw.githubusercontent.com/M-Endymion/homelab-tools/main/thumbnail-homelab.png" alt="Homelab Tools">
+        <div class="project-info">
+          <h3><a href="https://github.com/M-Endymion/homelab-tools">homelab-tools</a></h3>
+          <p>One-click Ubuntu server deployment and Jellyfin media management tools.</p>
+        </div>
       </div>
     </div>
 
     <h2>Skills & Technologies</h2>
-    <p><strong>Core Expertise:</strong> PowerShell, MECM/SCCM, Intune, Jamf Pro, Client Health & Remediation, OSD/Task Sequences</p>
-    <p><strong>Additional:</strong> Docker, Linux/Ubuntu Server, Bash Scripting, Cross-platform Automation, GitHub Actions</p>
+    <p><strong>Core:</strong> PowerShell, MECM/SCCM, Intune, Jamf Pro, Client Health & Remediation, OSD/Task Sequences</p>
+    <p><strong>Additional:</strong> Docker, Linux/Ubuntu, Bash, Cross-platform Automation, GitHub Actions, Self-hosted Infrastructure</p>
 
     <h2>Get in Touch</h2>
-    <p>Feel free to explore my repositories or reach out if you're looking for an experienced Endpoint Management / Automation professional.</p>
+    <p>I'm currently open to new opportunities in Endpoint Management, Automation Engineering, or MECM Administration roles. Feel free to reach out!</p>
   </div>
 
   <footer>
-    <p>© 2026 Jason Ray (M-Endymion) • <a href="https://github.com/M-Endymion/M-Endymion.github.io" style="color:#bbb;">Source on GitHub</a></p>
+    <p>© 2026 Jason Ray (M-Endymion) • <a href="https://github.com/M-Endymion/M-Endymion.github.io" style="color:#bbb;">View Source</a></p>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.documentElement;
+      const current = body.getAttribute('data-theme');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </body>
 </html>
